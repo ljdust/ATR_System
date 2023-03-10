@@ -1,0 +1,52 @@
+atr_state_list_listener:
+  ros__parameters:
+    # name of the log file, first number timing for robot publishers, second number for list publisher, last number architecture
+    log_file: proc_test_A1_R20_T1
+
+network_topology:
+  ros__parameters:
+    # comunication architecture [0,1] many to one, one to one
+    architecture: 1
+    # ATRS are launched in groups with delay after each group, each group consists of num_of_atr_in_groups amount of atrs
+    # num_of_connected_atr states amount of atrs initially connected to the tracker under startup
+    num_of_atr_groups: 20
+    num_of_atr_in_groups: 1
+    num_of_connected_atr: 20
+    # delay between the launch groups
+    delay: 0.5
+    # Id for the first robot
+    start_id: 0
+
+atr_bot:
+  ros__parameters:
+    state_publisher_period: 1
+    package: atr_bot
+    executable: atr_bot
+    node_base_name: atr_bot_
+    state_topic_name: state_
+    base_position: 
+      x: 0
+      y: 0
+      z: 0
+
+atr_tracker:
+  ros__parameters:
+    package: atr_tracker
+    executable: atr_tracker
+    node_base_name: atr_tracker
+    # Showing connection handling variables in Log
+    debug: true
+    list_publisher_period: 10
+    watchdog_period: 999
+    max_pos_age: 999
+
+atr_state_list_subscriber:
+  ros__parameters:
+    # Reference frame for the visualization objects
+    frame_id: map
+    # Namespace to group the visualization markers
+    marker_namespace: atr_states_objects
+    # Topic name for the marker array
+    marker_topic_name: atr_markers
+    # Topic name where the ATRState will be published. This node transforms this state into visualization markers
+    subs_topic_name: atr_state_list

@@ -1,0 +1,4 @@
+int32 period
+int32 msg_age
+---
+int32 ack
