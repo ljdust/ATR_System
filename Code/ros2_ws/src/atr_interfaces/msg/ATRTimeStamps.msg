@@ -1,0 +1,5 @@
+int64 id
+builtin_interfaces/Time stamp_creation
+builtin_interfaces/Time stamp_reception_tracker
+builtin_interfaces/Time stamp_sending_tracker
+builtin_interfaces/Time stamp_reception_list

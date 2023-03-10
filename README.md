@@ -1,5 +1,5 @@
 # DYNAMIC CONNECTION HANDLING FOR SCALABLE ROBOTIC SYSTEMS USING ROS2
-Authors: Lukas Dust, Emil Persson <br />
+Authors: Emil Persson, Lukas Dust <br />
 Supervisors: Per-Lage Götvall, Emmanuel Dean, Mikael Ekström, Saad Mubeen <br />
 ## Structure
 The thesis can be found in Main branch in documentation folder <br />
