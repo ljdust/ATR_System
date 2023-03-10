@@ -206,7 +206,7 @@ private:
           RCLCPP_INFO(this->get_logger(), "CLEAR VARIABLES::_%i", request->id);
 
 
-          // fill up id array
+          // Allocate ressources in id array
           if(request->id == max_id){
             connected.erase(connected.begin()+int(request->id));
             int n = connected.size()-1;
