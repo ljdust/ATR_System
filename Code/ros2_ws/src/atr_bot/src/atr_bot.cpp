@@ -54,7 +54,7 @@ public:
     atr_pose_z = param_atr_pos_z_;
 
     // Initialise wakeup service
-    wakeup_service = this->create_service<atr_interfaces::srv::WakeupSrv>("/wakeup/atr_bot_"+std::to_string(atr_id), std::bind(&ATRPublisher::wakeup_service_callback,this,_1,_2));
+    wakeup_service = this->create_service<atr_interfaces::srv::WakeupSrv>("/wakeup/atr_bot_"+std::to_string(atr_id), std::bind(&ATRPublisher::connection_state_callback,this,_1,_2));
 
     // Initialise connection client for connecting to the atr
     connection_client = this -> create_client<atr_interfaces::srv::ConnectionSrv>("/atr_tracker/ConnectSrv");
@@ -232,7 +232,7 @@ private:
   }
 
   // Service for simulating the connection and disconnection / malfunction / repair
-  void wakeup_service_callback(const std::shared_ptr<atr_interfaces::srv::WakeupSrv::Request> request,
+  void connection_state_callback(const std::shared_ptr<atr_interfaces::srv::WakeupSrv::Request> request,
     std::shared_ptr<atr_interfaces::srv::WakeupSrv::Response> response){
       // CONNECT ACTION
       if(request->id ==0){
